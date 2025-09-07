@@ -25,6 +25,7 @@ async function bootstrap() {
   });
 
   app.enable('trust proxy');
+  process.env.PREFIX ? app.setGlobalPrefix(process.env.PREFIX) : null;
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();

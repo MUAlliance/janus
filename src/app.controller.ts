@@ -33,8 +33,9 @@ export class AppController {
     }
   } */
 
-  @All("/*")
+  @All("/{*path}")
   getHello(@Req() req: Request, @Res() res: Response): Promise<void> {
+    req.url = process.env.PREFIX ? req.originalUrl.replace(`/${process.env.PREFIX}`, "") : req.url;
     return this.appService.callback(req, res);
   }
 }

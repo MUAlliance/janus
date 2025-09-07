@@ -126,7 +126,7 @@ export class OIDCProviderService {
                 ],
                 url(ctx, interaction) {
                     const prompt = interaction.prompt;
-                    return `/interaction/${interaction.uid}`;
+                    return (process.env.PREFIX ? `/${process.env.PREFIX}` : '') + `/interaction/${interaction.uid}`;
                 },
             },
             async extraTokenClaims(ctx: oidc.KoaContextWithOIDC, token: oidc.AccessToken) {
