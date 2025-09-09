@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <%- bsInfo.assets %>
+  <title>授权 - <%= bsInfo.name %>
+  </title>
+</head>
+
+<body class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="<%= bsInfo.url %>">
+        <%= bsInfo.name %>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">登录至 <%= clientName %>
+        </p>
+        <main>
+          <div class="alert alert-info">
+            请确认以下授权码与您的应用中显示的授权码相符。
+          </div>
+          <div class="mb-3 text-center" style="font-size: 1.6em; font-weight: bold; font-family: Minecraft;">
+            <%= userCode %>
+          </div>
+          <div class="alert alert-warning">
+            <i class="icon fas fa-exclamation-triangle"></i>如果您没有发起此操作，或者该授权码与您的应用中显示的授权码不匹配，请关闭此窗口或点击取消。
+          </div>
+          <%- form %>
+          <button class="btn btn-success btn-block" type="submit" form="op.deviceConfirmForm">继续</button>
+          <button class="btn btn-default btn-block" type="submit" form="op.deviceConfirmForm" value="yes" name="abort">取消</button>
+        </main>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <%- bsInfo.assets %>
+  <title>授权 - <%= bsInfo.name %>
+  </title>
+</head>
+
+<body class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="<%= bsInfo.url %>">
+        <%= bsInfo.name %>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">授予应用访问权限</p>
+        <main>
+          <% if (msg) { %>
+          <div class="alert alert-danger">
+            <%= msg %>
+          </div>
+          <% } %>
+          <%- form %>
+          <div class="alert alert-warning">
+            <i class="icon fas fa-exclamation-triangle"></i>请勿输入来自你不信任的来源的授权码，以免造成个人隐私泄露和账号安全问题。
+          </div>
+          <button class="btn btn-success btn-block" type="submit" form="op.deviceInputForm">继续</button>
+        </main>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

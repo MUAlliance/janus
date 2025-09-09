@@ -8,6 +8,7 @@ import { UserInfo, YggCClaims, YggCScopes, YggdrasilProfile } from './blessing.t
 import { CodeIdToUUID, PassportAccessToken, Player, UUID } from '@prisma/client';
 import { Inject, Injectable } from '@nestjs/common';
 import { CustomPrismaService } from 'nestjs-prisma';
+import { userCodeInputSource, userCodeConfirmSource, successSource } from './views';
 
 export const BS_RESOURCE_INDICATOR: string = "https://github.com/bs-community/blessing-skin-server";
 export const ACCESS_TOKEN_NAME: string = "Yggdrasil Connect";
@@ -79,6 +80,9 @@ export class OIDCProviderService {
             features: {
                 deviceFlow: {
                     enabled: true,
+                    userCodeInputSource: userCodeInputSource,
+                    userCodeConfirmSource: userCodeConfirmSource,
+                    successSource: successSource
                 },
                 dPoP: {
                     enabled: false
